@@ -1,0 +1,107 @@
+﻿<Window
+    x:Class="CustomTreeView.UI.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:iconButtonDesign="clr-namespace:IconButtonDesign;assembly=IconButtonDesign"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Width="1920"
+    Height="1080"
+    DataContext="{Binding Main, Source={StaticResource Locator}}"
+    Left="0"
+    ResizeMode="NoResize"
+    Top="0"
+    WindowState="Maximized"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <materialDesign:DialogHost Identifier="RootDialog" SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}">
+        <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">
+            <materialDesign:DrawerHost.LeftDrawerContent>
+                <DockPanel MinWidth="368" Margin="0,62,0,0">
+                    <ToggleButton
+                        Margin="0,0,67,0"
+                        HorizontalAlignment="Right"
+                        DockPanel.Dock="Top"
+                        Foreground="#92A6AF"
+                        IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}"
+                        Style="{StaticResource MaterialDesignHamburgerToggleButton}" />
+                    <StackPanel
+                        Margin="0,16,0,16"
+                        Orientation="Vertical"
+                        PreviewMouseLeftButtonUp="UIElement_OnPreviewMouseLeftButtonUp">
+                        <iconButtonDesign:IconButton
+                            Command="{Binding EditCommand}"
+                            Content="РЕДАКТОР"
+                            HighlightedIcon="Resources/Icons/icnEdit_Active.png"
+                            NormalIcon="Resources/Icons/icnEdit_Normal.png"
+                            PressedIcon="Resources/Icons/icnEdit_Active.png"
+                            Style="{StaticResource IconButtonStyle}" />
+                        <iconButtonDesign:IconButton
+                            Command="{Binding ExamCommand}"
+                            Content="ЧЕК-ЛИСТ"
+                            HighlightedIcon="Resources/Icons/icnExam_Active.png"
+                            NormalIcon="Resources/Icons/icnExam_Normal.png"
+                            PressedIcon="Resources/Icons/icnExam_Active.png"
+                            Style="{StaticResource IconButtonStyle}" />
+                        <iconButtonDesign:IconButton
+                            Command="{Binding ExitCommand}"
+                            Content="ВЫЙТИ"
+                            HighlightedIcon="Resources/Icons/icnExit_Active.png"
+                            NormalIcon="Resources/Icons/icnExit_Normal.png"
+                            PressedIcon="Resources/Icons/icnExit_Active.png"
+                            Style="{StaticResource IconButtonStyle}" />
+                    </StackPanel>
+                </DockPanel>
+            </materialDesign:DrawerHost.LeftDrawerContent>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="28" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Border
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Background="{StaticResource TopBlueBrush}" />
+                <DockPanel Grid.Row="1">
+                    <materialDesign:ColorZone
+                        Height="96"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                        Background="{StaticResource BlueBrush}"
+                        DockPanel.Dock="Top">
+                        <DockPanel Name="DockPanel">
+                            <ToggleButton
+                                x:Name="MenuToggleButton"
+                                Width="40"
+                                Height="40"
+                                Margin="31,0,0,0"
+                                Background="Transparent"
+                                Foreground="White"
+                                Style="{StaticResource MaterialDesignActionAccentToggleButton}">
+                                <ToggleButton.Content>
+                                    <materialDesign:PackIcon
+                                        Width="40"
+                                        Height="40"
+                                        Foreground="White"
+                                        Kind="Menu" />
+                                </ToggleButton.Content>
+                            </ToggleButton>
+                            <TextBlock
+                                Margin="126,0,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource TitleTextBlockStyle}">
+                                Программа для заполнения чек-листа
+                            </TextBlock>
+                        </DockPanel>
+                    </materialDesign:ColorZone>
+                    <Grid Name="MainGrid">
+                        <ContentControl Content="{Binding Current}" />
+                    </Grid>
+                </DockPanel>
+            </Grid>
+
+        </materialDesign:DrawerHost>
+    </materialDesign:DialogHost>
+</Window>

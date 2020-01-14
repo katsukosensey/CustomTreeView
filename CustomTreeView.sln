@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.108
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomTreeView.UI", "CustomTreeView.UI\CustomTreeView.UI.csproj", "{FB1C0303-8482-4607-81C9-DF46E82CA3AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IconButtonDesign", "IconButtonDesign\IconButtonDesign.csproj", "{6FC41340-1834-4B5B-904A-819A511F1142}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB1C0303-8482-4607-81C9-DF46E82CA3AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB1C0303-8482-4607-81C9-DF46E82CA3AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB1C0303-8482-4607-81C9-DF46E82CA3AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB1C0303-8482-4607-81C9-DF46E82CA3AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FC41340-1834-4B5B-904A-819A511F1142}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FC41340-1834-4B5B-904A-819A511F1142}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FC41340-1834-4B5B-904A-819A511F1142}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FC41340-1834-4B5B-904A-819A511F1142}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F18428F4-DACF-485B-9642-C69BE4E60B79}
+	EndGlobalSection
+EndGlobal

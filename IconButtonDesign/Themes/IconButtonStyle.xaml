@@ -1,0 +1,94 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:iconButtonDesign="clr-namespace:IconButtonDesign">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="IconButtonColors.xaml" />
+        <ResourceDictionary Source="IconButtonFont.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    <Style TargetType="{x:Type iconButtonDesign:IconButton}">
+        <Setter Property="IconWidth" Value="30" />
+        <Setter Property="IconHeight" Value="30" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="TextAlignment" Value="Left" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="HighlightedBackground" Value="{DynamicResource HighlightedBrush}" />
+        <Setter Property="PressedBackground" Value="{DynamicResource PressedBrush}" />
+        <Setter Property="FontFamily" Value="{DynamicResource PrimaryFontFamily}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <Setter Property="HighlightedForeground" Value="{DynamicResource HighlightedForegroundBrush}" />
+        <Setter Property="PressedForeground" Value="{DynamicResource PressedForegroundBrush}" />
+        <Setter Property="UnderlineSolidColorBrush" Value="{DynamicResource PrimaryUnderlineBrush}" />
+        <Setter Property="UnderlineHighlightedSolidColorBrush" Value="{DynamicResource HighlightedUnderlineBrush}" />
+        <Setter Property="UnderlinePressedSolidColorBrush" Value="{DynamicResource PressedUnderlineBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid x:Name="Grid" Background="{TemplateBinding Background}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Border Grid.Column="0" Padding="{Binding RelativeSource={RelativeSource AncestorType=iconButtonDesign:IconButton}, Path=IconPadding}">
+                            <Image
+                                x:Name="Icon"
+                                Width="{Binding RelativeSource={RelativeSource AncestorType=iconButtonDesign:IconButton}, Path=IconWidth}"
+                                Height="{Binding RelativeSource={RelativeSource AncestorType=iconButtonDesign:IconButton}, Path=IconHeight}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Source="{Binding RelativeSource={RelativeSource AncestorType=iconButtonDesign:IconButton}, Path=NormalIcon}" />
+                        </Border>
+                        <Border
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Padding="{Binding RelativeSource={RelativeSource AncestorType=iconButtonDesign:IconButton}, Path=TextPadding}">
+                            <TextBlock
+                                x:Name="TextContent"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                FontFamily="{TemplateBinding FontFamily}"
+                                FontSize="{TemplateBinding FontSize}"
+                                Foreground="{Binding RelativeSource={RelativeSource AncestorType=iconButtonDesign:IconButton}, Path=Foreground}"
+                                Text="{TemplateBinding Content}"
+                                TextAlignment="{Binding RelativeSource={RelativeSource AncestorType=iconButtonDesign:IconButton}, Path=TextAlignment}"
+                                TextWrapping="{Binding RelativeSource={RelativeSource AncestorType=iconButtonDesign:IconButton}, Path=TextWrapping}" />
+                        </Border>
+                        <Border
+                            x:Name="Underline"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Height="{Binding RelativeSource={RelativeSource AncestorType=iconButtonDesign:IconButton}, Path=UnderlineHeight}"
+                            MinHeight="1"
+                            Margin="{Binding RelativeSource={RelativeSource AncestorType=iconButtonDesign:IconButton}, Path=UnderlineMargin}"
+                            Background="{Binding RelativeSource={RelativeSource AncestorType=iconButtonDesign:IconButton}, Path=UnderlineSolidColorBrush}"
+                            Visibility="{Binding RelativeSource={RelativeSource AncestorType=iconButtonDesign:IconButton}, Path=HasUnderline, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="Icon" Property="Source" Value="{Binding RelativeSource={RelativeSource AncestorType=iconButtonDesign:IconButton}, Path=HighlightedIcon}" />
+                            <Setter TargetName="TextContent" Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=iconButtonDesign:IconButton}, Path=HighlightedForeground}" />
+                            <Setter TargetName="Grid" Property="Background" Value="{Binding RelativeSource={RelativeSource AncestorType=iconButtonDesign:IconButton}, Path=HighlightedBackground}" />
+                            <Setter TargetName="Underline" Property="Background" Value="{Binding RelativeSource={RelativeSource AncestorType=iconButtonDesign:IconButton}, Path=UnderlineHighlightedSolidColorBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter TargetName="Icon" Property="Source" Value="{Binding RelativeSource={RelativeSource AncestorType=iconButtonDesign:IconButton}, Path=PressedIcon}" />
+                            <Setter TargetName="TextContent" Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=iconButtonDesign:IconButton}, Path=PressedForeground}" />
+                            <Setter TargetName="Grid" Property="Background" Value="{Binding RelativeSource={RelativeSource AncestorType=iconButtonDesign:IconButton}, Path=PressedBackground}" />
+                            <Setter TargetName="Underline" Property="Background" Value="{Binding RelativeSource={RelativeSource AncestorType=iconButtonDesign:IconButton}, Path=UnderlinePressedSolidColorBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
