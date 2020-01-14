@@ -1,0 +1,13 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--  стандартные цвета для типа IconButton можно переопределить, добавив в словарь ресурсов своего проекта кисти с данными ключами  -->
+    <SolidColorBrush x:Key="PrimaryBrush" Color="#ffffff" />
+    <SolidColorBrush x:Key="PrimaryForegroundBrush" Color="#75858c" />
+    <SolidColorBrush x:Key="HighlightedBrush" Color="#e7f3ff" />
+    <SolidColorBrush x:Key="HighlightedForegroundBrush" Color="#383c3f" />
+    <SolidColorBrush x:Key="PressedBrush" Color="#e7f3ff" />
+    <SolidColorBrush x:Key="PressedForegroundBrush" Color="#383c3f" />
+    <SolidColorBrush x:Key="PrimaryUnderlineBrush" Color="#ececec" />
+    <SolidColorBrush x:Key="HighlightedUnderlineBrush" Color="#f99500" />
+    <SolidColorBrush x:Key="PressedUnderlineBrush" Color="#f99500" />
+</ResourceDictionary>
